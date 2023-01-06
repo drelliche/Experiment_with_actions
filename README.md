@@ -1,2 +1,2 @@
-# Experiment_with_actions
+# Experiment with Actions
 This repo is to figure out how to use GitHub actions
