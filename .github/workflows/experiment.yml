@@ -37,14 +37,16 @@ jobs:
           echo $(pwd)
           echo $(date) > new_file.txt
           ls
+          cat new_file.txt
           
       - name: Commit files  
         run:
+          git status
           # git config --local user.name actions-user
           # git config --local user.email "actions@github.com" 
           # echo "configured successfully"
-          git add new_file.txt
-          echo "new file added"
-          git commit -m "GH Action Files added $(date)"
-          echo "file committed"
-          git push -f origin main
+          #git add new_file.txt
+          #echo "new file added"
+          #git commit -m "GH Action Files added $(date)"
+          #echo "file committed"
+          #git push -f origin main
