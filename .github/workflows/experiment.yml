@@ -41,5 +41,11 @@ jobs:
           
       - name: Commit files?
         run:
-          git status
+          git fetch
+
+          git add *
+
+          git commit -am "GH Action   Files added    $(date)" 
+ 
+          git push -f origin main
 
