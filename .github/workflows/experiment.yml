@@ -40,9 +40,9 @@ jobs:
           
       - name: Commit files  
         run:
-          git config --local user.name actions-user
-          git config --local user.email "actions@github.com" 
-          echo "configured successfully"
+          # git config --local user.name actions-user
+          # git config --local user.email "actions@github.com" 
+          # echo "configured successfully"
           git add new_file.txt
           echo "new file added"
           git commit -m "GH Action Files added $(date)"
