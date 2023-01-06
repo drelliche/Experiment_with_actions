@@ -42,6 +42,8 @@ jobs:
       - name: Commit files  
         run:
           git status
+          git add new_file.txt
+          git status
           # git config --local user.name actions-user
           # git config --local user.email "actions@github.com" 
           # echo "configured successfully"
