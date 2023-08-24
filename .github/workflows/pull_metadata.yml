@@ -53,7 +53,7 @@ jobs:
       - name: check_if_changed  
         run: |
           changes=$(git diff assets/metadata/timestamp.txt | wc -l)
-          #echo $changes
+          echo  there is $changes new line
           any_changes=$([ $changes -gt 0 ] && echo "true" || echo "false")
           echo the any_changes variable is now $any_changes
           echo "any_change=$any_changes" >> "$GITHUB_OUTPUT"
