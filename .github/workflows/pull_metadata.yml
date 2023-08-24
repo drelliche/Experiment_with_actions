@@ -23,6 +23,8 @@ jobs:
       output2: ${{ steps.step2.outputs.test }}
       output3: ${{ steps.check_if_changed.outputs.any_change }}
     steps:
+      - uses: actions/checkout@v3
+      
       - id: step1
         run: |
           echo "test=hello" >> "$GITHUB_OUTPUT"
