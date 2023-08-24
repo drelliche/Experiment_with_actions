@@ -7,11 +7,7 @@ name: pull_metadata
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: "metadata_workflow"
-    paths-ignore:
-      - 'assets/**'
-      - '_for_authors/**'
-      - '_module_templates/**'
+    branches: "main"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,70 +28,70 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Process_Metadata
         run: |
-          bash .github/scripts/process_metadata.sh
+          bash .github/scripts/dummy_script.sh
       
       - name: check_if_changed  
         run: |
-          changes=$(git diff assets/metadata/module_data.py | wc -l)
+          changes=$(git diff assets/metadata/timestamp.txt | wc -l)
           #echo $changes
           any_changes=$([ $changes -gt 0 ] && echo "true" || echo "false")
           echo the any_changes variable is now $any_changes
           echo "any_change=$any_changes" >> "$GITHUB_OUTPUT"
  
-  # debugging the output relationship
-  debugging:
-    runs-on: ubuntu-latest
-    needs: [ process_metadata ]
-    #if: needs.process_metadata.outputs.any_changes == true
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:  
-      - env:
-          any_changes: ${{needs.process_metadata.outputs.any_change}}
-          my_var: testing_variable
-        run: 
-          echo the any_changes variable is $any_changes
-          echo the my_var variable is $my_var
+  # # debugging the output relationship
+  # debugging:
+  #   runs-on: ubuntu-latest
+  #   needs: [ process_metadata ]
+  #   #if: needs.process_metadata.outputs.any_changes == true
+  #   # Steps represent a sequence of tasks that will be executed as part of the job
+  #   steps:  
+  #     - env:
+  #         any_changes: ${{needs.process_metadata.outputs.any_change}}
+  #         my_var: testing_variable
+  #       run: 
+  #         echo the any_changes variable is $any_changes
+  #         echo the my_var variable is $my_var
 
 
-  # If the processed metadata has changed at all, then we update the files:
-  update_data_files:
-    runs-on: ubuntu-latest
-    needs: [ process_metadata ]
-    if: needs.process_metadata.outputs.any_changes == true
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:  
-      - uses: actions/checkout@v3
+  # # If the processed metadata has changed at all, then we update the files:
+  # update_data_files:
+  #   runs-on: ubuntu-latest
+  #   needs: [ process_metadata ]
+  #   if: needs.process_metadata.outputs.any_changes == true
+  #   # Steps represent a sequence of tasks that will be executed as part of the job
+  #   steps:  
+  #     - uses: actions/checkout@v3
 
-      - name: Set up Python 3.x
-        uses: actions/setup-python@v4
-        with:
-          # Semantic version range syntax or exact version of a Python version
-          python-version: '3.x'
+  #     - name: Set up Python 3.x
+  #       uses: actions/setup-python@v4
+  #       with:
+  #         # Semantic version range syntax or exact version of a Python version
+  #         python-version: '3.x'
 
-      - name: Install Python dependencies
-        run: python -m pip install --upgrade pip pandas
+  #     - name: Install Python dependencies
+  #       run: python -m pip install --upgrade pip pandas
 
-      - name: Create csv from python file
-        run: |
-          python assets/metadata/module_data.py
+  #     - name: Create csv from python file
+  #       run: |
+  #         python assets/metadata/module_data.py
 
-      - name: Commit newly updated files
-        run:
-          git config --local user.name actions-user
+  #     - name: Commit newly updated files
+  #       run:
+  #         git config --local user.name actions-user
 
-          git config --local user.email "actions@github.com" 
+  #         git config --local user.email "actions@github.com" 
  
-          git checkout metadata_workflow
+  #         git checkout metadata_workflow
 
-          git fetch
+  #         git fetch
 
-          git add assets/metadata/module_data.py
+  #         git add assets/metadata/module_data.py
 
-          git add assets/metadata/module_data.csv
+  #         git add assets/metadata/module_data.csv
 
-          git commit -am "update metadata records" 
+  #         git commit -am "update metadata records" 
  
-          git push origin metadata_workflow
+  #         git push origin metadata_workflow
 
 
 
