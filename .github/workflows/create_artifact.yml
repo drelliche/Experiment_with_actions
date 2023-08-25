@@ -55,7 +55,8 @@ jobs:
         run: |
           value=`cat assets/metadata/timestamp.txt`
           echo The result is $value
-          new_content=`cat new_content.txt`
+          mv new_content.txt assets/metadata/new_content.txt
+          new_content=`cat assets/metadata/new_content.txt`
           echo Here is the new content $new_content
           git config --local user.name actions-user
 
