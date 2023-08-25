@@ -67,7 +67,7 @@ jobs:
 
           git branch -r 
 
-          # git checkout alpha
+          git checkout alpha
 
           git status
 
