@@ -32,7 +32,7 @@ jobs:
       - shell: bash
         run: |
           value=`cat timestamp.txt`
-          echo $value >> assets/metadata/timestamp.txt
+          echo $value
       - name: Upload math result for job 2
         uses: actions/upload-artifact@v3
         with:
