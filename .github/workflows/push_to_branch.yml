@@ -50,6 +50,13 @@ jobs:
   # # If changes were made to the python file, then we want to push those changes
   commit_changes:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: does anything work?
+        run: |
+          echo "does anything work?"
+          bash .github/scripts/dummy_script.sh
+          echo "script ran"
     # needs: run_script
     # if: needs.run_script.outputs.any_changes == 'true'  
     steps:
@@ -68,9 +75,9 @@ jobs:
       # - name: Install Python dependencies
       #   run: python -m pip install --upgrade pip pandas
 
-      - name: Create csv from python file
-        run: |
-          bash .github/scripts/dummy_script.sh
+      # - name: Create csv from python file
+      #   run: |
+      #     bash .github/scripts/dummy_script.sh
           
       - name: Commit newly updated files
         run:
