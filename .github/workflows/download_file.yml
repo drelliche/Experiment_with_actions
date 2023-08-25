@@ -19,11 +19,7 @@ jobs:
   run_script:
     runs-on: ubuntu-latest
     steps:      
-      - uses: suisei-cn/actions-download-file@v1.3.0
-        id: downloadfile  # Remember to give an ID if you need the output filename
-        name: Download the file
-        with:
-          url: "https://raw.githubusercontent.com/arcus/education_modules/metadata_workflow/assets/metadata/module_data.py"
-          target: public/
       - name: did download file download?
-        run: wget https://raw.githubusercontent.com/arcus/education_modules/metadata_workflow/assets/metadata/module_data.py -O new_file.txt
+        run: | 
+          wget https://raw.githubusercontent.com/arcus/education_modules/metadata_workflow/assets/metadata/module_data.py -O new_file.txt
+          wc new_file.txt
