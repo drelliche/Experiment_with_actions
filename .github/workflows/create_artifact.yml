@@ -69,7 +69,11 @@ jobs:
 
           git checkout alpha
 
+          git add new_content.txt
+          
           git status
+
+
 
           
 
