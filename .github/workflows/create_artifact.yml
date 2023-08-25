@@ -6,7 +6,7 @@ on:
 
 jobs:
   job_1:
-    name: Add 3 and 7
+    name: create an new artifact
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,7 +20,7 @@ jobs:
           path: assets/metadata/timestamp.txt
 
   job_2:
-    name: Multiply by 9
+    name: download, update, and reupload the artifact
     needs: job_1
     runs-on: ubuntu-latest
     steps:
@@ -57,3 +57,21 @@ jobs:
           echo The result is $value
           new_content=`cat new_content.txt`
           echo Here is the new content $new_content
+          git config --local user.name actions-user
+
+          git config --local user.email "actions@github.com" 
+
+          git status
+ 
+          
+          # git checkout alpha
+
+          # git fetch
+
+          # git add assets/metadata/module_data.py
+
+          # git add assets/metadata/module_data.csv
+
+          # git commit -am "update metadata records" 
+ 
+          # git push origin metadata_workflow
