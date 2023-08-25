@@ -31,8 +31,7 @@ jobs:
       - shell: bash
         run: |
           value=`cat timestamp.txt`
-          touch assets/metadata/double_timestamp.txt
-          echo $value $value > assets/metadata/double_timestamp.txt
+          echo $value $value > assets/metadata/timestamp.txt
       - name: Upload math result for job 2
         uses: actions/upload-artifact@v3
         with:
@@ -51,5 +50,5 @@ jobs:
       - name: Print the final result
         shell: bash
         run: |
-          value=`cat assets/metadata/double_timestamp.txt`
+          value=`cat assets/metadata/timestamp.txt`
           echo The result is $value
