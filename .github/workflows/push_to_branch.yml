@@ -49,7 +49,7 @@ jobs:
 
           git commit -am "update metadata records" 
  
-          git push origin alpha
+          git push origin main
 
 
 
