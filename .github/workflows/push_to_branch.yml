@@ -54,9 +54,9 @@ jobs:
       - uses: actions/checkout@v3
       - name: does anything work?
         run: |
-        echo "does anything work?"
-        bash .github/scripts/dummy_script.sh
-        echo "script ran"
+          echo "does anything work?"
+          bash .github/scripts/dummy_script.sh
+          echo "script ran"
     # # needs: run_script
     # # if: needs.run_script.outputs.any_changes == 'true'  
     # steps:
