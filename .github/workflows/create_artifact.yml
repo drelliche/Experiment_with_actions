@@ -33,11 +33,12 @@ jobs:
         run: |
           value=`cat timestamp.txt`
           echo $value
+          echo $value > new_content.txt
       - name: Upload math result for job 2
         uses: actions/upload-artifact@v3
         with:
           name: homework
-          path: assets/metadata/timestamp.txt
+          path: new_content.txt
 
   job_3:
     name: Display results
@@ -54,3 +55,5 @@ jobs:
         run: |
           value=`cat assets/metadata/timestamp.txt`
           echo The result is $value
+          new_content=`cat new_content.txt`
+          echo Here is the new content $new_content
