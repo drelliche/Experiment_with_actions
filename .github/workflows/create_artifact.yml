@@ -9,6 +9,7 @@ jobs:
     name: Add 3 and 7
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - shell: bash
         run: |
           bash .github/scripts/dummy_script.sh
