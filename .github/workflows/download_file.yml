@@ -26,4 +26,4 @@ jobs:
           url: "https://raw.githubusercontent.com/arcus/education_modules/metadata_workflow/assets/metadata/module_data.py"
           target: public/
       - name: did download file download?
-        run: cat $${{ steps.downloadfile.outputs.body }}
+        run: cat steps.downloadfile
