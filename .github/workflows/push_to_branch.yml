@@ -42,6 +42,12 @@ jobs:
 
           git fetch
 
+          git stash
+          
+          git checkout alpha
+
+          git stash apply
+
           git add assets/metadata/timestamp.txt
           #git add assets/metadata/module_data.py
 
@@ -49,7 +55,7 @@ jobs:
 
           git commit -am "update metadata records" 
  
-          git push origin main
+          git push origin alpha
 
 
 
