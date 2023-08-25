@@ -2,7 +2,7 @@ name: Share data between jobs
 
 on:
   push:
-    branches: "main"
+    branches: "none"
 
 jobs:
   job_1:
