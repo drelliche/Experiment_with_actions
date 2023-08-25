@@ -7,7 +7,7 @@ name: commit_to_branch
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: "main"
+    branches: "none"
     paths-ignore:
       - 'assets/**'
       - '_for_authors/**'
@@ -43,10 +43,12 @@ jobs:
           git fetch
 
           git stash
-          
+
           git checkout alpha
 
           git stash apply
+
+          git restore --staged .
 
           git add assets/metadata/timestamp.txt
           #git add assets/metadata/module_data.py
