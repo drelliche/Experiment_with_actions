@@ -66,6 +66,8 @@ jobs:
 
           git checkout alpha
 
+          mv assets/metadata/new_content.txt new_content
+
           git add new_content.txt
 
           git commit -m "update new content"
