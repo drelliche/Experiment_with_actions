@@ -1,0 +1,29 @@
+name: download file from internet
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: "main"
+    paths-ignore:
+      - 'assets/**'
+      - '_for_authors/**'
+      - '_module_templates/**'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+  run_script:
+    runs-on: ubuntu-latest
+    steps:      
+      - uses: suisei-cn/actions-download-file@v1.3.0
+        id: downloadfile  # Remember to give an ID if you need the output filename
+        name: Download the file
+        with:
+          url: "https://raw.githubusercontent.com/arcus/education_modules/metadata_workflow/assets/metadata/module_data.py"
+          target: public/
+      - name: did download file download?
+        run: echo `wc $${{ steps.downloadfile.outputs.body }}`
