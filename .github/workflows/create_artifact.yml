@@ -55,20 +55,26 @@ jobs:
         run: |
           value=`cat assets/metadata/timestamp.txt`
           echo The result is $value
-          mv new_content.txt assets/metadata/new_content.txt
-          new_content=`cat assets/metadata/new_content.txt`
+          
+          ## Move the new_content.txt file to a new location so that we don't have a conflict when switching branches
+          mv new_content.txt temp.txt
+          new_content=`cat temp.txt`
           echo Here is the new content $new_content
+          
+          ## configure git
           git config --local user.name actions-user
 
           git config --local user.email "actions@github.com"  
           
           git fetch
 
+          ## check out the branch you want this file to land on
           git checkout alpha
 
           git status
 
-          mv assets/metadata/new_content.txt new_content.txt
+          ## move the temp file to where you actually want it to live
+          mv temp.txt new_content.txt
 
           git add new_content.txt
 
@@ -78,14 +84,3 @@ jobs:
 
           git status
 
-
-
-          
-
-          # git add assets/metadata/module_data.py
-
-          # git add assets/metadata/module_data.csv
-
-          # git commit -am "update metadata records" 
- 
-          # git push origin metadata_workflow
