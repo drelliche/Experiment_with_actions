@@ -26,4 +26,4 @@ jobs:
           url: "https://raw.githubusercontent.com/arcus/education_modules/metadata_workflow/assets/metadata/module_data.py"
           target: public/
       - name: did download file download?
-        run: wget https://raw.githubusercontent.com/arcus/education_modules/metadata_workflow/assets/metadata/module_data.py -0 new_file.txt
+        run: wget https://raw.githubusercontent.com/arcus/education_modules/metadata_workflow/assets/metadata/module_data.py -O new_file.txt
