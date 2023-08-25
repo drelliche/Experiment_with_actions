@@ -24,6 +24,7 @@ jobs:
     needs: job_1
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Download math result for job 1
         uses: actions/download-artifact@v3
         with:
@@ -43,6 +44,7 @@ jobs:
     needs: job_2
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Download math result for job 2
         uses: actions/download-artifact@v3
         with:
