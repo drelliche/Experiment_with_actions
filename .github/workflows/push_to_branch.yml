@@ -72,7 +72,6 @@ jobs:
         run: |
           bash .github/scripts/dummy_script.sh
           
-          # python assets/metadata/module_data.py
 
       - name: Commit newly updated files
         run:
