@@ -70,7 +70,9 @@ jobs:
 
       - name: Create csv from python file
         run: |
-        bash .github/scripts/dummy_script.sh
+        echo "hello world"
+        
+#        bash .github/scripts/dummy_script.sh
           
       # - name: Commit newly updated files
       #   run:
