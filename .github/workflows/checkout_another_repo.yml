@@ -25,11 +25,13 @@ jobs:
         with:
           repository: arcus/module_discovery
           path: module_discovery
+        run: |
+          git status
 
       - name: Commit new module_data.py
         run: |
           git status
-          
+
           git config --local user.name actions-user
 
           git config --local user.email "actions@github.com" 
