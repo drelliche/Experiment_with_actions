@@ -41,4 +41,4 @@ jobs:
 
           git commit -am "update metadata records" 
  
-          #it push origin main
+          git push origin main
