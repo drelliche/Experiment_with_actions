@@ -29,7 +29,9 @@ jobs:
       - name: Show working directory
         run: |
           ls -a
-          #git status
+          cd module_discovery
+          ls
+          git status
 
       - name: Commit new module_data.py
         run: |
