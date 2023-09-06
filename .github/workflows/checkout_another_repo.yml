@@ -1,0 +1,43 @@
+# This is a workflow to checkout a different repository and push something to it.
+# each time something is merged to main, this workflow will run
+
+name: checkout module_discovery
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: "main"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # If changes were made to the python file, then we want to push those changes to the metadata_workflow branch and make a new csv
+  update_module_discovery_repository:
+    name: Update module_discovery repository
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: Checkout module_discovery
+        uses: actions/checkout@v3
+        with:
+          repository: arcus/module_discovery
+          path: module_discovery
+
+      - name: Commit new module_data.py
+        run: |
+          git status
+          
+          git config --local user.name actions-user
+
+          git config --local user.email "actions@github.com" 
+ 
+          git fetch
+          
+          git add module_data.py
+
+          git commit -am "update metadata records" 
+ 
+          git push origin main
