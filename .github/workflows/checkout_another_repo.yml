@@ -24,13 +24,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: arcus/module_discovery
-      
-      - name: Show working directory
-        run: |
-          ls -a
-          cd module_discovery
-          ls
-          git status
 
       - name: Commit new module_data.py
         run: |
@@ -43,7 +36,8 @@ jobs:
  
           git fetch
           
-          git add module_data.py
+          echo "new file" > new_file.txt
+          git add new_file.txt
 
           git commit -am "update metadata records" 
  
