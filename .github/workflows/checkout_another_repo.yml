@@ -31,8 +31,8 @@ jobs:
 
       - name: Commit new module_data.py
         run: |
-          ls
-
+          git clone https://github.com/arcus/module_discovery.git
+          
           git status
 
           git config --local user.name actions-user
