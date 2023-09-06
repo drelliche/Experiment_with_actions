@@ -28,8 +28,8 @@ jobs:
       
       - name: Show working directory
         run: |
-          ls
-          git status
+          ls -a
+          #git status
 
       - name: Commit new module_data.py
         run: |
