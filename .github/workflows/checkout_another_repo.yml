@@ -40,5 +40,7 @@ jobs:
           git add new_file.txt
 
           git commit -am "update metadata records" 
+
+          git status
  
           git push origin main
