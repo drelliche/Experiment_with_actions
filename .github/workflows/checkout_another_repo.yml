@@ -24,7 +24,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: arcus/module_discovery
-          path: ./module_discovery
       
       - name: Show working directory
         run: |
