@@ -20,15 +20,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       
+      - name: Checkout module_discovery
+        uses: actions/checkout@v3
+        with:
+          repository: arcus/module_discovery
+          path: ./module_discovery
       
       - name: Show working directory
-        run: ls
+        run: |
+          ls
+          git status
 
       - name: Commit new module_data.py
         run: |
-          git clone https://github.com/arcus/module_discovery.git
-          
-          ls
           
           git status
 
