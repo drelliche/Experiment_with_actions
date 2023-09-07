@@ -40,6 +40,8 @@ jobs:
           echo "new file" > new_file.txt
           git add new_file.txt
 
+          git status
+
           git commit -am "update metadata records" 
 
           git status
