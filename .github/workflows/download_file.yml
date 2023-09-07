@@ -4,7 +4,7 @@ name: download file from internet
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: "none"
+    branches: "main"
     paths-ignore:
       - 'assets/**'
       - '_for_authors/**'
@@ -16,10 +16,25 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
-  run_script:
+  download_file:
+    name: Download metadata from education_modules repository
     runs-on: ubuntu-latest
     steps:      
       - name: did download file download?
         run: | 
           wget https://raw.githubusercontent.com/arcus/education_modules/metadata_workflow/assets/metadata/module_data.py -O new_file.txt
           wc new_file.txt
+      
+      - name: commit to this repository
+        run: |
+          git config --local user.name actions-user
+
+          git config --local user.email "actions@github.com" 
+
+          git fetch
+          
+          git add new_file.txt
+
+          git commit -am "update metadata records" 
+ 
+          git push origin main
