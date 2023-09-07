@@ -42,6 +42,8 @@ jobs:
 
           git status
 
+          git push
+
           git commit -am "update metadata records" 
 
           git status
