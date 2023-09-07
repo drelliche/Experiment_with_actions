@@ -3,7 +3,7 @@ name: Run on a schedule
 on:
   schedule:
   # * is a special character in YAML so you have to quote this string
-  - cron:  '0,10,20,30,40,50 12 * * 4'
+  - cron:  '20 * * * *'
 
 jobs:
   did_it_run:
