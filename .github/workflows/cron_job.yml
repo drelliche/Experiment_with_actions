@@ -2,14 +2,15 @@ name: Run on a schedule
 
 on:
   schedule:
-  # * is a special character in YAML so you have to quote this string
-  - cron:  '20 * * * *'
+    - cron: '30 * * * *'
 
 jobs:
-  did_it_run:
-    name: Did it run?
+  test_schedule:
     runs-on: ubuntu-latest
     steps:
+      - name: Every time
+        run: echo "This step will always run"
+
       - name: print a message
         run: |
           echo "the time is now $( date )"
