@@ -3,6 +3,8 @@ name: Run on a schedule
 on:
   schedule:
     - cron: '34/2 * * * *'
+  
+  workflow_dispatch:
 
 jobs:
   test_schedule:
