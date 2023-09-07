@@ -19,7 +19,8 @@ jobs:
   download_file:
     name: Download metadata from education_modules repository
     runs-on: ubuntu-latest
-    steps:      
+    steps:
+      - uses: actions/checkout@v3  
       - name: did download file download?
         run: | 
           wget https://raw.githubusercontent.com/arcus/education_modules/metadata_workflow/assets/metadata/module_data.py -O new_file.txt
